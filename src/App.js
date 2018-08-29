@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { increment,decrement} from './actions/index'
+import { bindActionCreators } from 'redux';
+import  *as types from './actions/index'
 import './App.css';
+
 
 class App extends Component {
   render() {
+    const { increment ,decrement} = this.props;
     return (
       <div className="App">
         <div className='container'>
           <h1>{this.props.counter}</h1>
-          <button onClick={()=>this.props.increment()} className='btn btn-primary'>INCREMENT</button>
-          <button onClick={()=>this.props.decrement()} className='btn btn-info'>DECREMENT</button>
+          <button onClick={()=>increment()} className='btn btn-primary'>INCREMENT</button>
+          <button onClick={()=>decrement()} className='btn btn-info'>DECREMENT</button>
         </div>
       </div>
     );
@@ -30,4 +33,9 @@ const mapStateToProps = (state)=>{
   }
 }
 
-export default connect(mapStateToProps,{increment,decrement})(App)
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(types,dispatch);
+
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(App)
