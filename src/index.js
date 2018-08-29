@@ -2,20 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { createStore } from 'redux';
-import counter from './reducers/counter'
+import Rootdeducers from './reducers/index'
 import {increment,decrement} from './actions/index'
+import { Provider } from 'react-redux';
 import registerServiceWorker from './registerServiceWorker';
-const store = createStore(counter);
+const store = createStore(Rootdeducers);
 
-const render=()=>{
-    ReactDOM.render(<App 
-        value={store.getState()}
-        onDecrement={()=>store.dispatch(increment())}
-        onIncrement={()=>store.dispatch(decrement())}/>, document.getElementById('root'));
-}
 
-render();
-store.subscribe(render);
+    ReactDOM.render(
+        <Provider>
+             <App store={store}/>
+        </Provider>,
+     document.getElementById('root'));
 
 
 
