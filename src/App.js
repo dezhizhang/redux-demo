@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import  *as types from './actions/index'
+import User from './components/User'
 import './App.css';
+import { URLSearchParams } from 'url';
 
 
 class App extends Component {
@@ -17,6 +19,7 @@ class App extends Component {
           <h1>{this.props.counter}</h1>
           <button onClick={()=>increment()} className='btn btn-primary'>INCREMENT</button>
           <button onClick={()=>decrement()} className='btn btn-info'>DECREMENT</button>
+          <User/>
         </div>
       </div>
     );

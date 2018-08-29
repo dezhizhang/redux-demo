@@ -7,6 +7,7 @@ import {increment,decrement} from './actions/index'
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk'
+import axios from 'axios';
 import registerServiceWorker from './registerServiceWorker';
 const store = createStore(Rootdeducers,{},applyMiddleware(logger,thunk));
 
