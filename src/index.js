@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import Rootdeducers from './reducers/index'
 import {increment,decrement} from './actions/index'
 import { Provider } from 'react-redux';
+import logger from 'redux-logger';
+import thunk from 'redux-thunk'
 import registerServiceWorker from './registerServiceWorker';
-const store = createStore(Rootdeducers);
+const store = createStore(Rootdeducers,{},applyMiddleware(logger,thunk));
 
 
     ReactDOM.render(

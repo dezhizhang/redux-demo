@@ -1,8 +1,12 @@
 import {INCREMENT,DECREMENT} from '../contants/index'
 
 export const increment =()=>{
-    return {
-        type:INCREMENT
+    return dispatch =>{
+        setTimeout(()=>{
+            dispatch({
+                type:INCREMENT
+            })
+        },5000)
     }
 }
 

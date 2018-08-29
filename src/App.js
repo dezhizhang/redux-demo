@@ -9,6 +9,8 @@ import './App.css';
 class App extends Component {
   render() {
     const { increment ,decrement} = this.props;
+    const { dispatch } = this.props;
+
     return (
       <div className="App">
         <div className='container'>
